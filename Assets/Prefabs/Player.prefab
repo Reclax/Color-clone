@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5678182754859618686}
   - component: {fileID: 850323478120695899}
   - component: {fileID: 1207958342056138545}
-  - component: {fileID: 2719281169168386796}
+  - component: {fileID: 7602999470693577793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2719281169168386796
+--- !u!114 &7602999470693577793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,13 +162,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 309314748023905880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f6afe0123c984448cf79ef8ba31a57, type: 3}
+  m_Script: {fileID: 11500000, guid: 48a936b03cfeb894a9bb1ac085f0cc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalForce: 450
-  restartDelay: 1
-  playerParticles: {fileID: 3593313531486680731, guid: 4625103834c361e408b9a3bb32e6dafc, type: 3}
-  orangeColor: {r: 0.9215687, g: 0.8352942, b: 0.0627451, a: 1}
-  violetColor: {r: 0.53333336, g: 0.06666667, b: 0.95294124, a: 1}
-  cyanColor: {r: 0.19607845, g: 0.8588236, b: 0.9176471, a: 1}
-  pinkColor: {r: 0.9686275, g: 0, b: 0.48627454, a: 1}

@@ -331,7 +331,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -441,8 +441,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1671551400}
-        m_TargetAssemblyTypeName: StartScreen, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.StartScreenPresenter,
+          Assembly-CSharp
+        m_MethodName: OnStartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -792,9 +793,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671551396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f826850e8f536d479d7efdc9307830e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fa806d4750752d49bcc0e6cec78f29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startPanel: {fileID: 1671551396}
 --- !u!1 &2075930592
 GameObject:
   m_ObjectHideFlags: 0

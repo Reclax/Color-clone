@@ -3,28 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\StartScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\StartScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Application\\UseCases\\PlayerUseCase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Application\\UseCases\\PlayerUseCase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Credits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Credits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IPlayerInteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Domain\\Interfaces\\IPlayerInteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Library\\PackageCache\\com.unity.render-pipelines.universal@821b8547a8a5\\Runtime\\UniversalRenderPipeline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal@821b8547a8a5\\Runtime\\UniversalRenderPipeline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Entities\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Domain\\Entities\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IInputService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Domain\\Interfaces\\IInputService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Services\\UnityInputService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Infrastructure\\Services\\UnityInputService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3370A09A-BE99-EB05-4908-6FA1670564CB}|Zenject.csproj|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\assets\\plugins\\zenject\\source\\binding\\binders\\gameobject\\transformscopeconcreteidargconditioncopynonlazybinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3370A09A-BE99-EB05-4908-6FA1670564CB}|Zenject.csproj|solutionrelative:assets\\plugins\\zenject\\source\\binding\\binders\\gameobject\\transformscopeconcreteidargconditioncopynonlazybinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\FollowPlayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\FollowPlayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\WheelRotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\WheelRotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Presentation\\Unity\\StartScreenPresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Presentation\\Unity\\StartScreenPresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\StartScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\StartScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Entities\\IPlayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Domain\\Entities\\IPlayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IMovementStrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Domain\\Interfaces\\IMovementStrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IPlayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Domain\\Interfaces\\IPlayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Application\\UseCases\\MovePlayerUseCase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Application\\UseCases\\MovePlayerUseCase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Factories\\MovementStrategyFactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Infrastructure\\Factories\\MovementStrategyFactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,37 +74,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StartScreen.cs",
-              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\StartScreen.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StartScreen.cs",
-              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\StartScreen.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StartScreen.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T05:02:36.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Credits.cs",
-              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Credits.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Credits.cs",
-              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Credits.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Credits.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T04:38:13.321Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -72,52 +86,199 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UniversalRenderPipeline.cs",
-              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Library\\PackageCache\\com.unity.render-pipelines.universal@821b8547a8a5\\Runtime\\UniversalRenderPipeline.cs",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@821b8547a8a5\\Runtime\\UniversalRenderPipeline.cs",
-              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Library\\PackageCache\\com.unity.render-pipelines.universal@821b8547a8a5\\Runtime\\UniversalRenderPipeline.cs",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@821b8547a8a5\\Runtime\\UniversalRenderPipeline.cs",
-              "ViewState": "AgIAAGYDAAAAAAAAAAAawHkDAACBAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "PlayerUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Application\\UseCases\\PlayerUseCase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Application\\UseCases\\PlayerUseCase.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Application\\UseCases\\PlayerUseCase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Application\\UseCases\\PlayerUseCase.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T03:02:23.876Z"
+              "WhenOpened": "2025-06-17T03:02:40.881Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "IPlayerInteractor.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IPlayerInteractor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Domain\\Interfaces\\IPlayerInteractor.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IPlayerInteractor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Domain\\Interfaces\\IPlayerInteractor.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T02:54:15.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "FollowPlayer.cs",
               "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\FollowPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FollowPlayer.cs",
               "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\FollowPlayer.cs",
               "RelativeToolTip": "Assets\\Scripts\\FollowPlayer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAB1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T04:21:19.754Z"
+              "WhenOpened": "2025-06-17T00:26:01.943Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "WheelRotation.cs",
-              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\WheelRotation.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\WheelRotation.cs",
-              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\WheelRotation.cs",
-              "RelativeToolTip": "Assets\\Scripts\\WheelRotation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "IInputService.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IInputService.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Domain\\Interfaces\\IInputService.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IInputService.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Domain\\Interfaces\\IInputService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T03:45:11.695Z"
+              "WhenOpened": "2025-06-16T14:44:09.826Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Player.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player.cs",
-              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Player.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAADwvxgAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "UnityInputService.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Services\\UnityInputService.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Infrastructure\\Services\\UnityInputService.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Services\\UnityInputService.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Infrastructure\\Services\\UnityInputService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T01:13:01.152Z",
+              "WhenOpened": "2025-06-16T14:40:45.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Domain\\Interfaces\\IPlayer.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Domain\\Interfaces\\IPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T14:01:28.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController..cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs",
+              "RelativeToolTip": "Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAUwKEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T13:43:09.45Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProjectInstaller.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T13:33:28.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Entities\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Domain\\Entities\\Player.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Entities\\Player.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Domain\\Entities\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T13:40:11.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StartScreenPresenter.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Presentation\\Unity\\StartScreenPresenter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Presentation\\Unity\\StartScreenPresenter.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Presentation\\Unity\\StartScreenPresenter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Presentation\\Unity\\StartScreenPresenter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T13:43:53.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MovePlayerUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Application\\UseCases\\MovePlayerUseCase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Application\\UseCases\\MovePlayerUseCase.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Application\\UseCases\\MovePlayerUseCase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Application\\UseCases\\MovePlayerUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T13:41:52.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Entities\\IPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Domain\\Entities\\IPlayer.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Entities\\IPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Domain\\Entities\\IPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T13:40:00.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IMovementStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IMovementStrategy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Domain\\Interfaces\\IMovementStrategy.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Domain\\Interfaces\\IMovementStrategy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Domain\\Interfaces\\IMovementStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T13:39:28.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StartScreen.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\StartScreen.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StartScreen.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\StartScreen.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StartScreen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T14:25:30.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MovementStrategyFactory.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Factories\\MovementStrategyFactory.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Infrastructure\\Factories\\MovementStrategyFactory.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Factories\\MovementStrategyFactory.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Infrastructure\\Factories\\MovementStrategyFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T13:42:45.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs",
+              "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Plugins\\Zenject\\Source\\Binding\\Binders\\GameObject\\TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs",
+              "RelativeDocumentMoniker": "Assets\\Plugins\\Zenject\\Source\\Binding\\Binders\\GameObject\\TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs",
+              "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Plugins\\Zenject\\Source\\Binding\\Binders\\GameObject\\TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs",
+              "RelativeToolTip": "Assets\\Plugins\\Zenject\\Source\\Binding\\Binders\\GameObject\\TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T02:29:06.301Z"
             }
           ]
         }
