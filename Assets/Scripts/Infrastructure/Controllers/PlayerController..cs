@@ -27,6 +27,7 @@ namespace ColorClone.Infrastructure.Controllers
         private IPlayerInteractor _interactor;
         private Rigidbody2D _rb;
         private SpriteRenderer _sr;
+        private bool _isPlayerActive = true;
 
         [Inject]
         public void Construct(IInputService inputService)
@@ -92,18 +93,24 @@ namespace ColorClone.Infrastructure.Controllers
 
         private void Update()
         {
-            if (_input.GetJumpDown())
+            // Solo procesar input si el jugador está activo
+            if (_isPlayerActive && _input.GetJumpDown())
                 _interactor.Jump();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _interactor.HandleTrigger(other);
+            // Solo procesar triggers si el jugador está activo
+            if (_isPlayerActive)
+                _interactor.HandleTrigger(other);
         }
 
         private void HandleFinishDirect()
         {
             Debug.Log("Player finished level!");
+
+            // Desactivar el jugador inmediatamente para evitar más inputs
+            _isPlayerActive = false;
 
             // Instanciar las partículas inmediatamente
             if (playerParticles != null)
@@ -122,6 +129,9 @@ namespace ColorClone.Infrastructure.Controllers
         private void HandleDieDirect()
         {
             Debug.Log("Player died! Restarting level...");
+
+            // Desactivar el jugador inmediatamente para evitar más inputs
+            _isPlayerActive = false;
 
             // Instanciar las partículas inmediatamente
             if (playerParticles != null)

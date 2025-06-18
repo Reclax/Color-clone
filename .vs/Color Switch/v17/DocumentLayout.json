@@ -94,8 +94,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Application\\UseCases\\PlayerUseCase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T03:02:40.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T03:02:40.881Z"
             },
             {
               "$type": "Document",
@@ -155,8 +154,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Domain\\Interfaces\\IPlayer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T14:01:28.89Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T14:01:28.89Z"
             },
             {
               "$type": "Document",
@@ -166,7 +164,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs",
               "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs",
               "RelativeToolTip": "Assets\\Scripts\\Infrastructure\\Controllers\\PlayerController..cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-16T13:43:09.45Z",
               "EditorCaption": ""
