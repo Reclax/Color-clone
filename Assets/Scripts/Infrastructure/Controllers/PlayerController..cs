@@ -47,17 +47,11 @@ namespace ColorClone.Infrastructure.Controllers
             _rb = GetComponent<Rigidbody2D>();
             _sr = GetComponent<SpriteRenderer>();
 
-            // Verificar que el SpriteRenderer esté habilitado
-            if (_sr != null)
-            {
-                _sr.enabled = true;
-                Debug.Log($"SpriteRenderer enabled: {_sr.enabled}");
-                Debug.Log($"SpriteRenderer sprite: {(_sr.sprite != null ? _sr.sprite.name : "NULL")}");
-            }
-            else
-            {
+            // Verificar componentes críticos
+            if (_sr == null)
                 Debug.LogError("SpriteRenderer component not found!");
-            }
+            if (_rb == null)
+                Debug.LogError("Rigidbody2D component not found!");
         }
 
         private void InitializeInteractor()
@@ -65,20 +59,13 @@ namespace ColorClone.Infrastructure.Controllers
             // Parallel arrays of tags and colors
             var tags = new[] { "Orange", "Violet", "Cyan", "Pink" };
 
-            // Forzar alpha a 1.0 para todos los colores (corrección temporal)
+            // Forzar alpha a 1.0 para todos los colores
             var colors = new[] {
                 new Color(orangeColor.r, orangeColor.g, orangeColor.b, 1f),
                 new Color(violetColor.r, violetColor.g, violetColor.b, 1f),
                 new Color(cyanColor.r, cyanColor.g, cyanColor.b, 1f),
                 new Color(pinkColor.r, pinkColor.g, pinkColor.b, 1f)
             };
-
-            // Debug de los colores después de la corrección
-            Debug.Log("Colors after alpha correction:");
-            for (int i = 0; i < colors.Length; i++)
-            {
-                Debug.Log($"Color {i} ({tags[i]}): {colors[i]}");
-            }
 
             // Instantiate the use-case
             _interactor = new PlayerUseCase(
@@ -93,25 +80,14 @@ namespace ColorClone.Infrastructure.Controllers
         private void SubscribeToEvents()
         {
             // Subscribe to domain events to handle finish & death
-            _interactor.OnFinish += () => StartCoroutine(HandleFinish());
-            _interactor.OnDie += () => StartCoroutine(HandleDie());
+            _interactor.OnFinish += HandleFinishDirect;
+            _interactor.OnDie += HandleDieDirect;
         }
 
         private void InitializePlayerColor()
         {
-            // Initialize player color (esto faltaba en la versión original)
+            // Initialize player color
             _interactor.ChangeColor();
-
-            // Debug para verificar el color aplicado
-            Debug.Log($"Player color initialized: {_sr.color}");
-            Debug.Log($"Player sprite: {(_sr.sprite != null ? _sr.sprite.name : "NULL")}");
-
-            // Fallback: forzar un color visible si algo está mal
-            if (_sr.color.a < 0.1f) // Si es muy transparente
-            {
-                _sr.color = Color.white; // Forzar color blanco visible
-                Debug.LogWarning("Forced white color due to transparency issues");
-            }
         }
 
         private void Update()
@@ -125,38 +101,64 @@ namespace ColorClone.Infrastructure.Controllers
             _interactor.HandleTrigger(other);
         }
 
-        private IEnumerator HandleFinish()
+        private void HandleFinishDirect()
         {
-            // Desactivar el jugador primero
-            gameObject.SetActive(false);
+            Debug.Log("Player finished level!");
 
-            // Instanciar las partículas en la posición del jugador (como en el código original)
+            // Instanciar las partículas inmediatamente
             if (playerParticles != null)
                 Instantiate(playerParticles, transform.position, Quaternion.identity);
 
-            // Esperar antes de cargar la siguiente escena
-            yield return new WaitForSeconds(restartDelay);
+            // Desactivar visualmente el jugador
+            _sr.enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+            _rb.linearVelocity = Vector2.zero;
+            _rb.gravityScale = 0f;
 
-            // Cargar la siguiente escena
-            int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(activeSceneIndex + 1);
+            // Cargar siguiente escena después del delay usando Invoke
+            Invoke(nameof(LoadNextScene), restartDelay);
         }
 
-        private IEnumerator HandleDie()
+        private void HandleDieDirect()
         {
-            // Desactivar el jugador primero
-            gameObject.SetActive(false);
+            Debug.Log("Player died! Restarting level...");
 
-            // Instanciar las partículas en la posición del jugador (como en el código original)
+            // Instanciar las partículas inmediatamente
             if (playerParticles != null)
                 Instantiate(playerParticles, transform.position, Quaternion.identity);
 
-            // Esperar antes de reiniciar la escena
-            yield return new WaitForSeconds(restartDelay);
+            // Desactivar visualmente el jugador
+            _sr.enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+            _rb.linearVelocity = Vector2.zero;
+            _rb.gravityScale = 0f;
 
-            // Reiniciar la escena actual
+            // Reiniciar la escena después del delay usando Invoke
+            Invoke(nameof(RestartCurrentScene), restartDelay);
+        }
+
+        private void RestartCurrentScene()
+        {
             int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            Debug.Log($"Restarting scene: {activeSceneIndex}");
             SceneManager.LoadScene(activeSceneIndex);
+        }
+
+        private void LoadNextScene()
+        {
+            int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextSceneIndex = activeSceneIndex + 1;
+
+            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                Debug.Log($"Loading next scene: {nextSceneIndex}");
+                SceneManager.LoadScene(nextSceneIndex);
+            }
+            else
+            {
+                Debug.Log("No more levels! Restarting from first level");
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }

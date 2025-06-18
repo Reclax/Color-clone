@@ -43,10 +43,13 @@ namespace ColorClone.Application.UseCases
         public void HandleTrigger(Collider2D other)
         {
             var tag = other.tag;
+            Debug.Log($"Trigger detected with: {other.gameObject.name}, Tag: {tag}");
+            Debug.Log($"Current player color tag: {_colorTags[_currentIndex]}");
 
             // 1) ColorChanger
             if (tag == "ColorChanger")
             {
+                Debug.Log("ColorChanger triggered - changing color");
                 ChangeColor();
                 UnityEngine.Object.Destroy(other.gameObject);
                 return;
@@ -55,6 +58,7 @@ namespace ColorClone.Application.UseCases
             // 2) FinishLine → evento Finish
             if (tag == "FinishLine")
             {
+                Debug.Log("FinishLine triggered - finishing level");
                 OnFinish?.Invoke();
                 return;
             }
@@ -62,7 +66,12 @@ namespace ColorClone.Application.UseCases
             // 3) Cualquier otro trigger → si no coincide con el color actual, evento Die
             if (tag != _colorTags[_currentIndex])
             {
+                Debug.Log($"Wrong color collision! Expected: {_colorTags[_currentIndex]}, Got: {tag} - Player dies");
                 OnDie?.Invoke();
+            }
+            else
+            {
+                Debug.Log($"Correct color collision: {tag}");
             }
         }
 
