@@ -849,8 +849,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1671551400}
-        m_TargetAssemblyTypeName: Credits, Assembly-CSharp
-        m_MethodName: Closegame
+        m_TargetAssemblyTypeName: ColorClone.Infrastructure.Controllers.CreditsController,
+          Assembly-CSharp
+        m_MethodName: CloseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1342,7 +1343,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671551396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f21eb319d85ac4c9d95a8376a69eca, type: 3}
+  m_Script: {fileID: 11500000, guid: 43f0bf1891f536d49a2fb29c59c14971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1911315892
