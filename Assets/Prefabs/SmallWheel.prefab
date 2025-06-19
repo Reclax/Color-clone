@@ -520,8 +520,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5243751998486485200}
-  - component: {fileID: 4916388630586560321}
   - component: {fileID: 3109149337969736181}
+  - component: {fileID: -2809037060447816239}
   m_Layer: 0
   m_Name: SmallWheel
   m_TagString: Untagged
@@ -548,19 +548,6 @@ Transform:
   - {fileID: 222689838543740943}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4916388630586560321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055923130602306173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3376ef7f913c54cb10586ab60cb763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
 --- !u!50 &3109149337969736181
 Rigidbody2D:
   serializedVersion: 5
@@ -588,6 +575,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2809037060447816239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055923130602306173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b7d341d83d7f0448a099554d03f5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1 &7513830372607575818
 GameObject:
   m_ObjectHideFlags: 0

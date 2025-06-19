@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: violetColor.r
       value: 0.53333336
       objectReference: {fileID: 0}
+    - target: {fileID: 7602999470693577793, guid: 507229332cff08044a12887cfa5d8d6a, type: 3}
+      propertyPath: playerParticles
+      value: 
+      objectReference: {fileID: 3593313531486680731, guid: 4625103834c361e408b9a3bb32e6dafc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -521,10 +525,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7497924820319794197, guid: 6d6b3536c8537894bbf706c7e2837fb5, type: 3}
-      propertyPath: rotationSpeed
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 8103230245676163906, guid: 6d6b3536c8537894bbf706c7e2837fb5, type: 3}
       propertyPath: m_Name
       value: BigWheel (1)
@@ -650,10 +650,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4916388630586560321, guid: e4e41bf0428c3f648b96412b489b4682, type: 3}
-      propertyPath: rotationSpeed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5243751998486485200, guid: e4e41bf0428c3f648b96412b489b4682, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

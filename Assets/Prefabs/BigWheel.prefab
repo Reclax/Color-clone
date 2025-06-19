@@ -374,8 +374,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2274938493577560785}
-  - component: {fileID: 7497924820319794197}
   - component: {fileID: 8468704497794444980}
+  - component: {fileID: 1391022392400310885}
   m_Layer: 0
   m_Name: BigWheel
   m_TagString: Untagged
@@ -402,19 +402,6 @@ Transform:
   - {fileID: 2718123988337042588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7497924820319794197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8103230245676163906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3376ef7f913c54cb10586ab60cb763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
 --- !u!50 &8468704497794444980
 Rigidbody2D:
   serializedVersion: 5
@@ -442,6 +429,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1391022392400310885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8103230245676163906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b7d341d83d7f0448a099554d03f5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1 &8153857433966434111
 GameObject:
   m_ObjectHideFlags: 0
