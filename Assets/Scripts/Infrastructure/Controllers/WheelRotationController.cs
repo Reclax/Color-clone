@@ -8,22 +8,24 @@ namespace ColorClone.Infrastructure.Controllers
     [RequireComponent(typeof(Transform))]
     public class WheelRotationController : MonoBehaviour
     {
-        [Header("Configuraci髇 de rotaci髇")]
+        [Header("Configuraci贸n de rotaci贸n")]
         [SerializeField]
         private float rotationSpeed = 100f;
 
-        IWheelRotator _rotator;
+        private IWheelRotationFactory _wheelRotationFactory;
+        private IWheelRotator _rotator;
 
         [Inject]
-        public void Construct()
+        public void Construct(IWheelRotationFactory wheelRotationFactory)
         {
-            // Creamos el caso de uso pas醤dole el transform de este GameObject
-            _rotator = new WheelRotationUseCase(transform, rotationSpeed);
+            _wheelRotationFactory = wheelRotationFactory;
+            // Usar la f谩brica para crear el caso de uso de rotaci贸n
+            _rotator = _wheelRotationFactory.CreateWheelRotation(transform, rotationSpeed);
         }
 
         void Update()
         {
-            // Delegamos la rotaci髇 al caso de uso
+            // Delegamos la rotaci贸n al caso de uso
             _rotator.Rotate(Time.deltaTime);
         }
     }

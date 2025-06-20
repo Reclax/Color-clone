@@ -9,7 +9,7 @@ namespace ColorClone.CompositionRoot
     {
         public override void InstallBindings()
         {
-            // 1) Inyecci�n del servicio de input
+            // 1) Inyecci�n del servicio de input
             Container.Bind<IInputService>()
                      .To<UnityInputService>()
                      .AsSingle();
@@ -17,6 +17,14 @@ namespace ColorClone.CompositionRoot
             // 2) Localiza en escena el PlayerController y hazlo singleton
             Container.Bind<PlayerController>()
                      .FromComponentInHierarchy()
+                     .AsSingle();
+
+            // 3) Registrar las fábricas para el patrón Factory
+            Container.Bind<IPlayerFactory>()
+                     .To<ColorClone.Infrastructure.Factories.PlayerFactory>()
+                     .AsSingle();
+            Container.Bind<IWheelRotationFactory>()
+                     .To<ColorClone.Infrastructure.Factories.WheelRotationFactory>()
                      .AsSingle();
         }
     }

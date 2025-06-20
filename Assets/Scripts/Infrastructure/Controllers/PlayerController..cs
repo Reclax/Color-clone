@@ -25,14 +25,16 @@ namespace ColorClone.Infrastructure.Controllers
 
         private IInputService _input;
         private IPlayerInteractor _interactor;
+        private IPlayerFactory _playerFactory;
         private Rigidbody2D _rb;
         private SpriteRenderer _sr;
         private bool _isPlayerActive = true;
 
         [Inject]
-        public void Construct(IInputService inputService)
+        public void Construct(IInputService inputService, IPlayerFactory playerFactory)
         {
             _input = inputService;
+            _playerFactory = playerFactory;
         }
 
         private void Start()
@@ -57,25 +59,15 @@ namespace ColorClone.Infrastructure.Controllers
 
         private void InitializeInteractor()
         {
-            // Parallel arrays of tags and colors
             var tags = new[] { "Orange", "Violet", "Cyan", "Pink" };
-
-            // Forzar alpha a 1.0 para todos los colores
             var colors = new[] {
                 new Color(orangeColor.r, orangeColor.g, orangeColor.b, 1f),
                 new Color(violetColor.r, violetColor.g, violetColor.b, 1f),
                 new Color(cyanColor.r, cyanColor.g, cyanColor.b, 1f),
                 new Color(pinkColor.r, pinkColor.g, pinkColor.b, 1f)
             };
-
-            // Instantiate the use-case
-            _interactor = new PlayerUseCase(
-                _rb,
-                verticalForce,
-                _sr,
-                tags,
-                colors
-            );
+            // Usar la fábrica para crear el use-case
+            _interactor = _playerFactory.CreatePlayer(_rb, verticalForce, _sr, tags, colors);
         }
 
         private void SubscribeToEvents()
