@@ -87,8 +87,8 @@ namespace ColorClone.Infrastructure.Controllers
 
         private void InitializePlayerColor()
         {
-            // Initialize player color
-            _interactor.ChangeColor();
+            // Ya no es necesario llamar a ChangeColor aquí, el color inicial se establece en PlayerUseCase
+            // Si necesitas mostrar el color actual, puedes acceder a _sr.color
         }
 
         private void Update()
