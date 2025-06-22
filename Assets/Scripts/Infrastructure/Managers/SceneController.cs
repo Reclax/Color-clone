@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace ColorClone.Infrastructure.Managers
 {
     public class SceneController : MonoBehaviour
     {
         public static SceneController Instance { get; private set; }
+
+        [SerializeField] private float sceneTransitionDelay = 0.1f;
 
         private void Awake()
         {
@@ -20,34 +23,60 @@ namespace ColorClone.Infrastructure.Managers
 
         public void LoadSceneByIndex(int buildIndex)
         {
-            SceneManager.LoadScene(buildIndex);
+            StartCoroutine(LoadSceneAsync(buildIndex));
         }
 
         public void LoadSceneByName(string sceneName)
         {
-            SceneManager.LoadScene(sceneName);
+            StartCoroutine(LoadSceneAsync(sceneName));
         }
 
         public void LoadNextScene()
         {
             int currentIndex = SceneManager.GetActiveScene().buildIndex;
             int nextIndex = currentIndex + 1;
+
             if (nextIndex < SceneManager.sceneCountInBuildSettings)
             {
-                SceneManager.LoadScene(nextIndex);
+                StartCoroutine(LoadSceneAsync(nextIndex));
             }
             else
             {
                 // Si no hay más escenas, reinicia desde la primera
-                SceneManager.LoadScene(0);
+                StartCoroutine(LoadSceneAsync(0));
             }
         }
 
         public void RestartCurrentScene()
         {
             int currentIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentIndex);
+            StartCoroutine(LoadSceneAsync(currentIndex));
+        }
+
+        private IEnumerator LoadSceneAsync(int buildIndex)
+        {
+            // Pequeña pausa para permitir que Zenject limpie correctamente
+            yield return new WaitForSeconds(sceneTransitionDelay);
+
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(buildIndex);
+
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
+        }
+
+        private IEnumerator LoadSceneAsync(string sceneName)
+        {
+            // Pequeña pausa para permitir que Zenject limpie correctamente
+            yield return new WaitForSeconds(sceneTransitionDelay);
+
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
         }
     }
 }
-
