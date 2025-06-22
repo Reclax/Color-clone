@@ -79,8 +79,19 @@ namespace ColorClone.Infrastructure.Controllers
 
         private void InitializePlayerColor()
         {
-            // Ya no es necesario llamar a ChangeColor aquí, el color inicial se establece en PlayerUseCase
-            // Si necesitas mostrar el color actual, puedes acceder a _sr.color
+            // Selecciona un color aleatorio al iniciar el nivel
+            Color[] colors = { orangeColor, violetColor, cyanColor, pinkColor };
+            int randomIndex = Random.Range(0, colors.Length);
+            _sr.color = colors[randomIndex];
+            // Sincroniza el color lógico con el visual
+            if (_interactor != null)
+            {
+                var setColorIndexMethod = _interactor.GetType().GetMethod("SetColorIndex");
+                if (setColorIndexMethod != null)
+                {
+                    setColorIndexMethod.Invoke(_interactor, new object[] { randomIndex });
+                }
+            }
         }
 
         private void Update()

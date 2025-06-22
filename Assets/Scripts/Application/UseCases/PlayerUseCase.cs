@@ -147,5 +147,15 @@ namespace ColorClone.Application.UseCases
             Debug.Log("PlayerUseCase.Finish() called - invoking OnFinish event");
             OnFinish?.Invoke();
         }
+
+        // Permite establecer el color inicial desde fuera (por ejemplo, desde PlayerController)
+        public void SetColorIndex(int index)
+        {
+            if (index >= 0 && index < _colors.Length)
+            {
+                _currentIndex = index;
+                _playerRenderer.color = _colors[_currentIndex];
+            }
+        }
     }
 }

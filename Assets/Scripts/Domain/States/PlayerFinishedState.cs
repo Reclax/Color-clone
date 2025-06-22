@@ -9,11 +9,17 @@ namespace ColorClone.Domain.States
         public void Enter(IPlayerContext player)
         {
             player.Finish();
-            // Guardar progreso del nivel actual
-            int currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-            if (GameManager.Instance != null)
+            // Guardar progreso solo si NO es la EndScreen
+            var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+            int nextSceneIndex = currentScene.buildIndex + 1;
+            string nextSceneName = (nextSceneIndex < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
+                ? System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(nextSceneIndex))
+                : string.Empty;
+            Debug.Log($"Intentando guardar progreso. Escena actual: {currentScene.name}, siguiente: {nextSceneName}");
+            if (GameManager.Instance != null && nextSceneName != "EndScreen")
             {
-                GameManager.Instance.SaveLevelProgress(currentScene + 1); // Guarda el siguiente nivel
+                GameManager.Instance.SaveLevelProgress(nextSceneIndex);
+                Debug.Log($"Progreso guardado para el nivel: {nextSceneIndex}");
             }
         }
 
