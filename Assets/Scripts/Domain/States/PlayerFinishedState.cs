@@ -9,6 +9,12 @@ namespace ColorClone.Domain.States
         public void Enter(IPlayerContext player)
         {
             player.Finish();
+            // Guardar progreso del nivel actual
+            int currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SaveLevelProgress(currentScene + 1); // Guarda el siguiente nivel
+            }
         }
 
         public void Exit(IPlayerContext player)
