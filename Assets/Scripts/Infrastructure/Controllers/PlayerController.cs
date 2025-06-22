@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 using ColorClone.Domain.Interfaces;
 using ColorClone.Application.UseCases;
@@ -152,26 +151,12 @@ namespace ColorClone.Infrastructure.Controllers
 
         private void RestartCurrentScene()
         {
-            int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            Debug.Log($"Restarting scene: {activeSceneIndex}");
-            SceneManager.LoadScene(activeSceneIndex);
+            ColorClone.Infrastructure.Managers.SceneController.Instance.RestartCurrentScene();
         }
 
         private void LoadNextScene()
         {
-            int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            int nextSceneIndex = activeSceneIndex + 1;
-
-            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-            {
-                Debug.Log($"Loading next scene: {nextSceneIndex}");
-                SceneManager.LoadScene(nextSceneIndex);
-            }
-            else
-            {
-                Debug.Log("No more levels! Restarting from first level");
-                SceneManager.LoadScene(0);
-            }
+            ColorClone.Infrastructure.Managers.SceneController.Instance.LoadNextScene();
         }
     }
 }

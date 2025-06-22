@@ -43,7 +43,7 @@ namespace ColorClone.Presentation.Unity
                 GameManager.Instance.SaveLevelProgress(firstLevelBuildIndex);
             }
             _startPanel.SetActive(false);
-            SceneManager.LoadScene(firstLevelBuildIndex);
+            ColorClone.Infrastructure.Managers.SceneController.Instance.LoadSceneByIndex(firstLevelBuildIndex);
         }
 
         public void OnContinueButton()
@@ -52,7 +52,7 @@ namespace ColorClone.Presentation.Unity
             {
                 int lastLevel = GameManager.Instance.GetSavedLevel();
                 _startPanel.SetActive(false);
-                SceneManager.LoadScene(lastLevel);
+                ColorClone.Infrastructure.Managers.SceneController.Instance.LoadSceneByIndex(lastLevel);
             }
         }
 
