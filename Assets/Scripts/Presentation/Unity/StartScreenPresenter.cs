@@ -13,9 +13,11 @@ namespace ColorClone.Presentation.Unity
         [SerializeField] private UnityEngine.UI.Button btnNewGame;
         [SerializeField] private UnityEngine.UI.Button btnContinue;
         [SerializeField] private UnityEngine.UI.Button btnExit;
+        
+        [Header("Scene Configuration")]
+        [SerializeField] private string partiesSceneName = "Parties";
 
         private const string LastLevelKey = "LastLevelIndex";
-        private int firstLevelBuildIndex = 1; // Ajusta si tu primer nivel tiene otro índice
 
         [Inject]
         public void Construct()
@@ -38,22 +40,16 @@ namespace ColorClone.Presentation.Unity
         /// </summary>
         public void OnNewGameButton()
         {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.SaveLevelProgress(firstLevelBuildIndex);
-            }
-            _startPanel.SetActive(false);
-            ColorClone.Infrastructure.Managers.SceneController.Instance.LoadSceneByIndex(firstLevelBuildIndex);
+            // Configurar modo nueva partida y cargar escena de partidas
+            ColorClone.Presentation.Unity.PartiesPresenter.SetGlobalNewGameMode(true);
+            SceneManager.LoadScene(partiesSceneName);
         }
 
         public void OnContinueButton()
         {
-            if (GameManager.Instance != null && GameManager.Instance.HasSavedProgress())
-            {
-                int lastLevel = GameManager.Instance.GetSavedLevel();
-                _startPanel.SetActive(false);
-                ColorClone.Infrastructure.Managers.SceneController.Instance.LoadSceneByIndex(lastLevel);
-            }
+            // Configurar modo continuar y cargar escena de partidas
+            ColorClone.Presentation.Unity.PartiesPresenter.SetGlobalNewGameMode(false);
+            SceneManager.LoadScene(partiesSceneName);
         }
 
         public void OnExitButton()
