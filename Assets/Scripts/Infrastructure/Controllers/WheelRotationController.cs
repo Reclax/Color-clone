@@ -23,6 +23,13 @@ namespace ColorClone.Infrastructure.Controllers
             _rotator = _wheelRotationFactory.CreateWheelRotation(transform, rotationSpeed);
         }
 
+        private void SetupButton(UnityEngine.UI.Button button, UnityEngine.Events.UnityAction action)
+        {
+            if (button == null) return;
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(action);
+        }
+
         void Update()
         {
             // Delegamos la rotación al caso de uso

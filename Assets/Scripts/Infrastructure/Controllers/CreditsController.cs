@@ -5,7 +5,7 @@ using ColorClone.Application.UseCases;
 namespace ColorClone.Infrastructure.Controllers
 {
     /// <summary>
-    /// Controller que conecta la UI de Créditos con la lógica de cierre de juego.
+    /// Controller que conecta la UI de Crï¿½ditos con la lï¿½gica de cierre de juego.
     /// </summary>
     public class CreditsController : MonoBehaviour
     {
@@ -17,8 +17,15 @@ namespace ColorClone.Infrastructure.Controllers
             _gameFlowService = new GameFlowUseCase();
         }
 
+        private void SetupButton(UnityEngine.UI.Button button, UnityEngine.Events.UnityAction action)
+        {
+            if (button == null) return;
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(action);
+        }
+
         /// <summary>
-        /// Método público para asignar al botón OnClick de la pantalla de créditos.
+        /// Mï¿½todo pï¿½blico para asignar al botï¿½n OnClick de la pantalla de crï¿½ditos.
         /// </summary>
         public void CloseGame()
         {

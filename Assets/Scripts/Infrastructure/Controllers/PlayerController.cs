@@ -56,6 +56,13 @@ namespace ColorClone.Infrastructure.Controllers
                 Debug.LogError("Rigidbody2D component not found!");
         }
 
+        private void SetupButton(UnityEngine.UI.Button button, UnityEngine.Events.UnityAction action)
+        {
+            if (button == null) return;
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(action);
+        }
+
         private void InitializeInteractor()
         {
             var tags = new[] { "Orange", "Violet", "Cyan", "Pink" };

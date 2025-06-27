@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveLevelProgressToSlot(int slot, int buildIndex)
     {
+        Debug.Log($"[GameManager] Guardando progreso: slot={slot}, nivel={buildIndex}");
         PlayerPrefs.SetInt(SaveSlotKeyPrefix + slot, buildIndex);
         PlayerPrefs.Save();
         CurrentSlot = slot;
@@ -30,17 +31,26 @@ public class GameManager : MonoBehaviour
 
     public int GetSavedLevelFromSlot(int slot)
     {
-        return PlayerPrefs.GetInt(SaveSlotKeyPrefix + slot, 1); // 1 por defecto
+        int value = PlayerPrefs.GetInt(SaveSlotKeyPrefix + slot, 1);
+        Debug.Log($"[GameManager] Leyendo progreso: slot={slot}, nivel={value}");
+        return value;
     }
 
     public bool HasSavedProgressInSlot(int slot)
     {
-        return PlayerPrefs.HasKey(SaveSlotKeyPrefix + slot);
+        bool exists = PlayerPrefs.HasKey(SaveSlotKeyPrefix + slot);
+        Debug.Log($"[GameManager] ¿Existe progreso en slot {slot}? {exists}");
+        return exists;
     }
 
     public void SetCurrentSlot(int slot)
     {
         CurrentSlot = slot;
+    }
+
+    public int GetCurrentSlot()
+    {
+        return CurrentSlot;
     }
 
     // Métodos antiguos para compatibilidad (usarán el slot actual si está definido)

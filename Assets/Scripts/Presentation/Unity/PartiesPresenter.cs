@@ -1,407 +1,180 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
+using ColorClone.Domain.Interfaces;
+using ColorClone.Application.Presenters;
+using ColorClone.Application.UseCases;
+using ColorClone.Infrastructure.Adapters;
+using ColorClone.Infrastructure.Services;
+using Zenject;
 
 namespace ColorClone.Presentation.Unity
 {
-    public class PartiesPresenter : MonoBehaviour
+    /// <summary>
+    /// Vista Unity que implementa IPartiesView siguiendo el patrón MVP
+    /// Solo maneja la UI, toda la lógica está en el Presenter
+    /// Aplicando Clean Architecture y principios SOLID
+    /// </summary>
+    public class PartiesPresenter : MonoBehaviour, IPartiesView
     {
+        #region Events from IPartiesView
+        public event Action<int> OnSlotSelected;
+        public event Action OnBackRequested;
+        public event Action OnOverwriteConfirmed;
+        public event Action OnOverwriteCancelled;
+        #endregion
+
         [Header("Slots UI")]
-        public Button[] slotButtons; // Asignar en el inspector
-        public Text[] slotLabels;    // Asignar en el inspector
+        public Button[] slotButtons;
+        public Text[] slotLabels;
         public GameObject overwriteDialog;
         public Text overwriteDialogText;
         public Button confirmOverwriteButton;
         public Button cancelOverwriteButton;
 
         [Header("UI Elements")]
-        public Text titleText; // Título que cambia según el modo
+        public Text titleText;
         public Button backButton;
 
         [Header("Configuración")]
         public int firstLevelBuildIndex = 1;
-        public string endScreenName = "EndScreen";
         public string startScreenName = "StartScreen";
 
-        // Variable estática para comunicación entre escenas
-        private static bool globalNewGameMode = false;
+        // Presenter siguiendo Clean Architecture
+        [Inject]
+        private PartiesScreenPresenter _presenter;
 
-        private int selectedSlot = -1;
-        private bool isNewGame = false;
+        // Variable estática para comunicación entre escenas
+        private static bool _globalNewGameMode = false;
 
         public static void SetGlobalNewGameMode(bool newGameMode)
         {
-            globalNewGameMode = newGameMode;
+            _globalNewGameMode = newGameMode;
         }
 
         void Start()
         {
-            Debug.Log("PartiesPresenter Start() called");
-
-            // Verificar que GameManager existe
-            if (GameManager.Instance == null)
-            {
-                Debug.LogError("GameManager.Instance is null! Make sure GameManager is in the scene.");
-                return;
-            }
-
-            // Obtener modo desde variable estática
-            isNewGame = globalNewGameMode;
-            Debug.Log($"IsNewGame mode: {isNewGame}");
-
-            // Si no hay partidas guardadas, forzar modo nueva partida
-            if (!isNewGame)
-            {
-                DetectGameMode();
-            }
-
-            UpdateUI();
-            SetupEventListeners();
-        }
-
-        void DetectGameMode()
-        {
-            // Si no hay ninguna partida guardada, forzar modo nueva partida
-            bool hasAnyProgress = false;
-            for (int i = 0; i < 3; i++) // Assuming 3 slots
-            {
-                if (GameManager.Instance != null && GameManager.Instance.HasSavedProgressInSlot(i))
-                {
-                    hasAnyProgress = true;
-                    break;
-                }
-            }
-
-            // Si no hay progreso, automáticamente es nueva partida
-            if (!hasAnyProgress)
-            {
-                isNewGame = true;
-            }
-        }
-
-        void SetupEventListeners()
-        {
-            Debug.Log("Setting up event listeners...");
-
-            // Configurar slots
-            UpdateSlotsUI();
-
-            if (slotButtons != null && slotButtons.Length > 0)
-            {
-                for (int i = 0; i < slotButtons.Length; i++)
-                {
-                    if (slotButtons[i] != null)
-                    {
-                        int slot = i;
-                        slotButtons[i].onClick.RemoveAllListeners(); // Limpiar listeners anteriores
-                        slotButtons[i].onClick.AddListener(() => {
-                            Debug.Log($"Button {slot} clicked via code listener!");
-                            OnSlotSelected(slot);
-                        });
-                        Debug.Log($"Added listener to slot {i}");
-                        
-                        // Verificar si el botón es interactuable
-                        if (!slotButtons[i].interactable)
-                        {
-                            Debug.LogWarning($"Slot button {i} is not interactable!");
-                        }
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"Slot button {i} is null!");
-                    }
-                }
-            }
-            else
-            {
-                Debug.LogError("SlotButtons array is null or empty!");
-            }
-
-            // Configurar diálogo de sobrescritura
+            // Asegurar que el diálogo de sobrescritura esté oculto al inicio
             if (overwriteDialog != null)
             {
                 overwriteDialog.SetActive(false);
-
-                if (confirmOverwriteButton != null)
-                {
-                    confirmOverwriteButton.onClick.RemoveAllListeners();
-                    confirmOverwriteButton.onClick.AddListener(OnConfirmOverwrite);
-                }
-                else
-                {
-                    Debug.LogWarning("ConfirmOverwriteButton is null!");
-                }
-
-                if (cancelOverwriteButton != null)
-                {
-                    cancelOverwriteButton.onClick.RemoveAllListeners();
-                    cancelOverwriteButton.onClick.AddListener(OnCancelOverwrite);
-                }
-                else
-                {
-                    Debug.LogWarning("CancelOverwriteButton is null!");
-                }
             }
-            else
-            {
-                Debug.LogWarning("OverwriteDialog is null!");
-            }
+            // Conectar la vista con el presenter inyectado
+            _presenter.SetView(this);
+            _presenter.Initialize(_globalNewGameMode, firstLevelBuildIndex);
+            SetupEventListeners();
+        }
 
-            // Configurar botón de regreso
-            if (backButton != null)
+        void OnDestroy()
+        {
+            _presenter?.Dispose();
+        }
+
+        #region Architecture Setup
+        // El método InitializeArchitecture ya no es necesario gracias a Zenject
+        #endregion
+
+        #region UI Event Setup
+        private void SetupEventListeners()
+        {
+            SetupButtons(slotButtons, OnSlotSelected);
+            SetupButton(confirmOverwriteButton, () => OnOverwriteConfirmed?.Invoke());
+            SetupButton(cancelOverwriteButton, () => OnOverwriteCancelled?.Invoke());
+            SetupButton(backButton, () => OnBackRequested?.Invoke());
+        }
+
+        private void SetupButtons(Button[] buttons, Action<int> onClick)
+        {
+            if (buttons == null) return;
+            for (int i = 0; i < buttons.Length; i++)
             {
-                backButton.onClick.RemoveAllListeners();
-                backButton.onClick.AddListener(GoBackToStartScreen);
-                Debug.Log("Back button listener added");
-            }
-            else
-            {
-                Debug.LogWarning("BackButton is null!");
+                SetupButton(buttons[i], () => onClick?.Invoke(i));
             }
         }
 
-        void UpdateUI()
+        private void SetupButton(Button button, Action onClick)
+        {
+            if (button == null) return;
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(() => onClick?.Invoke());
+        }
+        #endregion
+
+        #region IPartiesView Implementation
+        public void DisplayTitle(string title)
         {
             if (titleText != null)
             {
-                titleText.text = isNewGame ? "Nueva Partida - Seleccionar Slot" : "Continuar Partida - Seleccionar Slot";
+                titleText.text = title;
             }
         }
 
-        public void GoBackToStartScreen()
+        public void DisplaySlotInfo(int slotIndex, string text, bool hasProgress)
         {
-            SceneManager.LoadScene(startScreenName);
+            SetSlotText(slotIndex, text);
         }
 
-        public void SetNewGameMode(bool newGame)
+        private void SetSlotText(int slotIndex, string text)
         {
-            isNewGame = newGame;
-        }
-
-        void UpdateSlotsUI()
-        {
-            Debug.Log("Updating slots UI...");
-
-            // Si slotLabels no está configurado, intentar encontrar automáticamente
-            if (slotLabels == null || slotLabels.Length == 0)
+            if (slotLabels != null && slotIndex < slotLabels.Length && slotLabels[slotIndex] != null)
             {
-                Debug.LogWarning("SlotLabels array is null or empty! Attempting to find them automatically...");
-                TryAutoFindSlotLabels();
-            }
-
-            if (GameManager.Instance == null)
-            {
-                Debug.LogError("GameManager.Instance is null!");
+                slotLabels[slotIndex].text = text;
                 return;
             }
-
-            // Si aún no tenemos labels después del intento automático, usar los botones
-            if (slotLabels == null || slotLabels.Length == 0)
+            if (slotButtons != null && slotIndex < slotButtons.Length && slotButtons[slotIndex] != null)
             {
-                Debug.LogWarning("Could not find slot labels, will update button texts instead");
-                UpdateButtonTexts();
-                return;
-            }
-
-            for (int i = 0; i < slotLabels.Length; i++)
-            {
-                if (slotLabels[i] != null)
+                var textComponent = slotButtons[slotIndex].GetComponentInChildren<Text>();
+                var tmpComponent = slotButtons[slotIndex].GetComponentInChildren<TextMeshProUGUI>();
+                if (textComponent != null)
                 {
-                    if (GameManager.Instance.HasSavedProgressInSlot(i))
-                    {
-                        int lvl = GameManager.Instance.GetSavedLevelFromSlot(i);
-                        slotLabels[i].text = $"Nivel: {lvl}";
-                        Debug.Log($"Slot {i}: Level {lvl}");
-                    }
-                    else
-                    {
-                        slotLabels[i].text = "Vacío";
-                        Debug.Log($"Slot {i}: Empty");
-                    }
+                    textComponent.text = text;
                 }
-                else
+                else if (tmpComponent != null)
                 {
-                    Debug.LogWarning($"SlotLabel {i} is null!");
+                    tmpComponent.text = text;
                 }
             }
         }
 
-        void TryAutoFindSlotLabels()
+        public void ShowOverwriteDialog(string message)
         {
-            if (slotButtons != null && slotButtons.Length > 0)
+            Debug.Log($"PartiesPresenter: ShowOverwriteDialog called with message: {message}");
+            Debug.LogWarning("DEBUGGING: ¿Por qué se está mostrando el diálogo de sobrescritura?");
+            
+            if (overwriteDialogText != null)
             {
-                slotLabels = new Text[slotButtons.Length];
-                for (int i = 0; i < slotButtons.Length; i++)
-                {
-                    if (slotButtons[i] != null)
-                    {
-                        // Buscar Text component en el botón o sus hijos
-                        Text textComponent = slotButtons[i].GetComponentInChildren<Text>();
-                        if (textComponent != null)
-                        {
-                            slotLabels[i] = textComponent;
-                            Debug.Log($"Auto-found Text component for slot {i}");
-                        }
-                        else
-                        {
-                            // Si no hay Text, buscar TextMeshPro
-                            TextMeshProUGUI tmpComponent = slotButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-                            if (tmpComponent != null)
-                            {
-                                Debug.Log($"Found TextMeshPro component for slot {i}, but using fallback method");
-                            }
-                            Debug.LogWarning($"Could not find Text component for slot {i}");
-                        }
-                    }
-                }
+                overwriteDialogText.text = message;
+            }
+
+            if (overwriteDialog != null)
+            {
+                overwriteDialog.SetActive(true);
+                Debug.Log("PartiesPresenter: Overwrite dialog shown");
             }
         }
 
-        void UpdateButtonTexts()
+        public void HideOverwriteDialog()
         {
-            if (slotButtons == null) return;
-
-            for (int i = 0; i < slotButtons.Length; i++)
+            Debug.Log("PartiesPresenter: HideOverwriteDialog called");
+            
+            if (overwriteDialog != null)
             {
-                if (slotButtons[i] != null)
-                {
-                    // Intentar Text primero
-                    Text buttonText = slotButtons[i].GetComponentInChildren<Text>();
-                    TextMeshProUGUI buttonTMP = slotButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-                    
-                    string textToSet;
-                    if (GameManager.Instance.HasSavedProgressInSlot(i))
-                    {
-                        int lvl = GameManager.Instance.GetSavedLevelFromSlot(i);
-                        textToSet = $"Slot {i + 1}\nNivel: {lvl}";
-                    }
-                    else
-                    {
-                        textToSet = $"Slot {i + 1}\nVacío";
-                    }
-
-                    if (buttonText != null)
-                    {
-                        buttonText.text = textToSet;
-                        Debug.Log($"Updated Text for slot {i}: {textToSet}");
-                    }
-                    else if (buttonTMP != null)
-                    {
-                        buttonTMP.text = textToSet;
-                        Debug.Log($"Updated TextMeshPro for slot {i}: {textToSet}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"No text component found for slot {i}");
-                    }
-                }
+                overwriteDialog.SetActive(false);
+                Debug.Log("PartiesPresenter: Overwrite dialog hidden");
             }
         }
+        #endregion
 
-        void OnSlotSelected(int slot)
-        {
-            Debug.Log($"Slot {slot} selected!");
-            selectedSlot = slot;
-
-            if (isNewGame)
-            {
-                Debug.Log("New game mode");
-                if (GameManager.Instance.HasSavedProgressInSlot(slot))
-                {
-                    Debug.Log($"Slot {slot} has saved progress, showing overwrite dialog");
-                    // Mostrar diálogo de sobrescritura
-                    if (overwriteDialogText != null)
-                        overwriteDialogText.text = $"¿Sobrescribir la partida en la casilla {slot + 1}?";
-                    if (overwriteDialog != null)
-                        overwriteDialog.SetActive(true);
-                }
-                else
-                {
-                    Debug.Log($"Slot {slot} is empty, starting new game");
-                    StartNewGame(slot);
-                }
-            }
-            else // Continuar
-            {
-                Debug.Log("Continue mode");
-                if (GameManager.Instance.HasSavedProgressInSlot(slot))
-                {
-                    Debug.Log($"Continuing game from slot {slot}");
-                    ContinueGame(slot);
-                }
-                else
-                {
-                    Debug.Log($"Slot {slot} is empty, starting new game instead");
-                    // Slot vacío → nueva partida
-                    StartNewGame(slot);
-                }
-            }
-        }
-
-        void StartNewGame(int slot)
-        {
-            GameManager.Instance.SetCurrentSlot(slot);
-            GameManager.Instance.SaveLevelProgressToSlot(slot, firstLevelBuildIndex);
-            SceneManager.LoadScene(firstLevelBuildIndex);
-        }
-
-        void ContinueGame(int slot)
-        {
-            GameManager.Instance.SetCurrentSlot(slot);
-            int lvl = GameManager.Instance.GetSavedLevelFromSlot(slot);
-            SceneManager.LoadScene(lvl);
-        }
-
-        void OnConfirmOverwrite()
-        {
-            overwriteDialog.SetActive(false);
-            StartNewGame(selectedSlot);
-        }
-
-        void OnCancelOverwrite()
-        {
-            overwriteDialog.SetActive(false);
-            selectedSlot = -1;
-        }
-
-        // Métodos públicos para ser asignados directamente en el Inspector de Unity
-        // Estos pueden ser usados como respaldo si los listeners por código no funcionan
-        public void OnSlot0ButtonClick()
-        {
-            Debug.Log("Slot 0 clicked via Inspector!");
-            OnSlotSelected(0);
-        }
-
-        public void OnSlot1ButtonClick()
-        {
-            Debug.Log("Slot 1 clicked via Inspector!");
-            OnSlotSelected(1);
-        }
-
-        public void OnSlot2ButtonClick()
-        {
-            Debug.Log("Slot 2 clicked via Inspector!");
-            OnSlotSelected(2);
-        }
-
-        public void OnBackButtonClick()
-        {
-            Debug.Log("Back button clicked via Inspector!");
-            GoBackToStartScreen();
-        }
-
-        public void OnConfirmOverwriteClick()
-        {
-            Debug.Log("Confirm overwrite clicked via Inspector!");
-            OnConfirmOverwrite();
-        }
-
-        public void OnCancelOverwriteClick()
-        {
-            Debug.Log("Cancel overwrite clicked via Inspector!");
-            OnCancelOverwrite();
-        }
+        #region Public Methods for Inspector (Backward Compatibility)
+        // Estos métodos mantienen compatibilidad con la configuración anterior
+        public void OnSlot0ButtonClick() => OnSlotSelected?.Invoke(0);
+        public void OnSlot1ButtonClick() => OnSlotSelected?.Invoke(1);
+        public void OnSlot2ButtonClick() => OnSlotSelected?.Invoke(2);
+        public void OnBackButtonClick() => OnBackRequested?.Invoke();
+        public void OnConfirmOverwriteClick() => OnOverwriteConfirmed?.Invoke();
+        public void OnCancelOverwriteClick() => OnOverwriteCancelled?.Invoke();
+        #endregion
     }
 }
 

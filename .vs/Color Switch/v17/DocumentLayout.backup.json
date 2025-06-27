@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Presentation\\Unity\\PartiesPresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3370A09A-BE99-EB05-4908-6FA1670564CB}|Zenject.csproj|c:\\users\\marco\\downloads\\color switch\\color switch\\assets\\plugins\\zenject\\source\\internal\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3370A09A-BE99-EB05-4908-6FA1670564CB}|Zenject.csproj|solutionrelative:assets\\plugins\\zenject\\source\\internal\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Managers\\SceneController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Infrastructure\\Managers\\SceneController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3370A09A-BE99-EB05-4908-6FA1670564CB}|Zenject.csproj|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\assets\\plugins\\zenject\\source\\internal\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3370A09A-BE99-EB05-4908-6FA1670564CB}|Zenject.csproj|solutionrelative:assets\\plugins\\zenject\\source\\internal\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Presentation\\Unity\\StartScreenPresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -150,11 +150,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
@@ -164,18 +168,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Presentation\\Unity\\PartiesPresenter.cs",
               "ToolTip": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Presentation\\Unity\\PartiesPresenter.cs",
               "RelativeToolTip": "Assets\\Scripts\\Presentation\\Unity\\PartiesPresenter.cs",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAuwBYBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T12:56:17.829Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProjectInstaller.cs",
               "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs",
@@ -183,12 +183,11 @@
               "RelativeToolTip": "Assets\\Scripts\\CompositionRoot\\ProjectInstaller.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T16:53:07.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T16:53:07.879Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "SceneController.cs",
               "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Scripts\\Infrastructure\\Managers\\SceneController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Infrastructure\\Managers\\SceneController.cs",
@@ -200,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Log.cs",
               "DocumentMoniker": "C:\\Users\\marco\\Downloads\\Color Switch\\Color Switch\\Assets\\Plugins\\Zenject\\Source\\Internal\\Log.cs",
               "RelativeDocumentMoniker": "Assets\\Plugins\\Zenject\\Source\\Internal\\Log.cs",
@@ -208,7 +207,8 @@
               "RelativeToolTip": "Assets\\Plugins\\Zenject\\Source\\Internal\\Log.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAAwCUAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T21:06:07.109Z"
+              "WhenOpened": "2025-06-22T21:06:07.109Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

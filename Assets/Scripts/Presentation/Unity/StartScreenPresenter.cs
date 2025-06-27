@@ -27,12 +27,19 @@ namespace ColorClone.Presentation.Unity
 
         private void Start()
         {
-            btnNewGame.onClick.AddListener(OnNewGameButton);
-            btnContinue.onClick.AddListener(OnContinueButton);
-            btnExit.onClick.AddListener(OnExitButton);
+            SetupButton(btnNewGame, OnNewGameButton);
+            SetupButton(btnContinue, OnContinueButton);
+            SetupButton(btnExit, OnExitButton);
 
             // Desactivar continuar si no hay progreso guardado
             btnContinue.interactable = GameManager.Instance != null && GameManager.Instance.HasSavedProgress();
+        }
+
+        private void SetupButton(UnityEngine.UI.Button button, UnityEngine.Events.UnityAction action)
+        {
+            if (button == null) return;
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(action);
         }
 
         /// <summary>

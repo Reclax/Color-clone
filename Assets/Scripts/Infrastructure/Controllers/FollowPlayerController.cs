@@ -5,7 +5,7 @@ using ColorClone.Application.UseCases;
 namespace ColorClone.Infrastructure.Controllers
 {
     /// <summary>
-    /// MonoBehaviour que “pegla” Unity con el caso de uso de seguimiento.
+    /// MonoBehaviour que ï¿½peglaï¿½ Unity con el caso de uso de seguimiento.
     /// </summary>
     [RequireComponent(typeof(Transform))]
     public class FollowPlayerController : MonoBehaviour
@@ -22,9 +22,16 @@ namespace ColorClone.Infrastructure.Controllers
             _followUseCase = new FollowTargetUseCase();
         }
 
+        private void SetupButton(UnityEngine.UI.Button button, UnityEngine.Events.UnityAction action)
+        {
+            if (button == null) return;
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(action);
+        }
+
         void Update()
         {
-            // Calculamos la siguiente posición y la aplicamos
+            // Calculamos la siguiente posiciï¿½n y la aplicamos
             transform.position = _followUseCase.CalculateNextPosition(
                 transform.position,
                 playerTransform.position
