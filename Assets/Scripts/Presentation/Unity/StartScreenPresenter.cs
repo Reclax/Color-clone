@@ -61,6 +61,11 @@ namespace ColorClone.Presentation.Unity
             ColorClone.Presentation.Unity.PartiesPresenter.SetGlobalNewGameMode(false);
             SceneManager.LoadScene(partiesSceneName);
         }
+        public void OnClickChangePassword()
+        {
+            // Aquí carga la escena de modificar la contraseña
+            SceneManager.LoadScene("ChangePasswordScene");
+        }
 
         public void OnExitButton()
         {
