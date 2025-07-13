@@ -56,6 +56,19 @@ public class GameManager : MonoBehaviour
     // Métodos antiguos para compatibilidad (usarán el slot actual si está definido)
     public void SaveLevelProgress(int buildIndex)
     {
+        // Parche: Si CurrentSlot no está seteado, intentar leer el último slot usado de PlayerPrefs
+        if (CurrentSlot < 0)
+        {
+            // Buscar el último slot con progreso guardado
+            for (int i = 0; i < 3; i++)
+            {
+                if (HasSavedProgressInSlot(i))
+                {
+                    SetCurrentSlot(i);
+                    break;
+                }
+            }
+        }
         if (CurrentSlot >= 0)
             SaveLevelProgressToSlot(CurrentSlot, buildIndex);
         else

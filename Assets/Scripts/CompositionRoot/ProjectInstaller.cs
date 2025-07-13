@@ -39,6 +39,10 @@ namespace ColorClone.CompositionRoot
                      .AsTransient();
             Container.Bind<ColorClone.Application.Presenters.PartiesScreenPresenter>()
                      .AsTransient();
+            // Bind para flujo de cierre de juego
+            Container.Bind<ColorClone.Domain.Interfaces.IGameFlowService>()
+                     .To<ColorClone.Application.UseCases.GameFlowUseCase>()
+                     .AsSingle();
         }
     }
 }

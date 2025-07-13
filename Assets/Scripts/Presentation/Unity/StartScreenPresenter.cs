@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
+using ColorClone.Domain.Interfaces;
 
 namespace ColorClone.Presentation.Unity
 {
@@ -19,10 +20,12 @@ namespace ColorClone.Presentation.Unity
 
         private const string LastLevelKey = "LastLevelIndex";
 
+        private IGameFlowService _gameFlowService;
+
         [Inject]
-        public void Construct()
+        public void Construct(IGameFlowService gameFlowService)
         {
-            // Inject additional services/use-cases here if needed
+            _gameFlowService = gameFlowService;
         }
 
         private void Start()
@@ -61,7 +64,14 @@ namespace ColorClone.Presentation.Unity
 
         public void OnExitButton()
         {
-            UnityEngine.Application.Quit();
+            if (_gameFlowService != null)
+            {
+                _gameFlowService.QuitApplication();
+            }
+            else
+            {
+                UnityEngine.Application.Quit();
+            }
         }
     }
 }
