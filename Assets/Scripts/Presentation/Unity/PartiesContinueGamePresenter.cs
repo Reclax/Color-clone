@@ -15,7 +15,7 @@ namespace ColorClone.Presentation.Unity
     /// </summary>
     public class PartiesContinueGamePresenter : MonoBehaviour, IContinueGamePartiesView
     {
-        public event Action OnBackRequested;
+       
 
         [Header("Slots UI")]
         public Button[] slotButtons;
@@ -140,6 +140,9 @@ namespace ColorClone.Presentation.Unity
         public void OnSlot0ButtonClick() => SlotButtonClicked(0);
         public void OnSlot1ButtonClick() => SlotButtonClicked(1);
         public void OnSlot2ButtonClick() => SlotButtonClicked(2);
-        public void OnBackButtonClick() => OnBackRequested?.Invoke();
+        public void OnBackButtonClick()
+        {
+            SceneManager.LoadScene(startScreenName);
+        }
     }
 }

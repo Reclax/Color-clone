@@ -161,6 +161,11 @@ namespace ColorClone.Presentation.Unity
         public void OnSlot1ButtonClick() => SlotButtonClicked(1);
         public void OnSlot2ButtonClick() => SlotButtonClicked(2);
 
+        public void OnBackButtonClick()
+        {
+            // Aquí puedes implementa la lógica para volver al menú principal
+            SceneManager.LoadScene("StartScreen"); 
+        }
         public void OnConfirmOverwriteClick()
         {
             HideOverwriteDialog();
