@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Services;
 using ColorClone.Presentation.Unity;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Infrastructure.Managers;
 
 public class LoginManager : MonoBehaviour
 {
@@ -21,9 +22,11 @@ public class LoginManager : MonoBehaviour
     {
         string username = usernameInput.text;
         string password = passwordInput.text;
-        if (userService.ValidatePassword(username, password))
-            
-        SceneManager.LoadScene("StartScreen");
+        if (userService.ValidatePassword(username, password)) {
+
+        SessionManager.Login(username);
+        SceneManager.LoadScene("StartScreen"); }
+        
         else
             messageText.text = "Usuario o contraseña incorrectos";
     }

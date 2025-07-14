@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Services;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
+using Assets.Scripts.Infrastructure.Managers;
 
 public class PasswordManager : MonoBehaviour
 {
@@ -12,11 +15,14 @@ public class PasswordManager : MonoBehaviour
 
     void Start()
     {
+        usernameInput.text = SessionManager.CurrentUser;
+        usernameInput.enabled = false;
         userService = new UserDataService();
     }
 
     public void OnChangePasswordClicked()
     {
+        
         string username = usernameInput.text;
         string newPassword = passwordInput.text;
 
@@ -30,5 +36,9 @@ public class PasswordManager : MonoBehaviour
             messageText.text = "Contraseña cambiada correctamente.";
         else
             messageText.text = "No se pudo cambiar la contraseña. Revisa que sea diferente y no usada antes.";
+    }
+    public void onClickMenu()
+    {
+        SceneManager.LoadScene("StartScreen");
     }
 }

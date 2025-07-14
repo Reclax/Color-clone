@@ -37,7 +37,7 @@ namespace ColorClone.CompositionRoot
                      .WithArguments("StartScreen"); // Puedes parametrizar el nombre de la escena si lo necesitas
             Container.Bind<ColorClone.Application.UseCases.SlotSelectionUseCase>()
                      .AsTransient();
-            Container.Bind<ColorClone.Application.Presenters.PartiesScreenPresenter>()
+            Container.Bind<ColorClone.Presentation.Unity.MenuScreenPresenter>()
                      .AsTransient();
             // Bind para flujo de cierre de juego
             Container.Bind<ColorClone.Domain.Interfaces.IGameFlowService>()

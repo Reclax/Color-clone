@@ -1,14 +1,12 @@
+using Assets.Scripts.Infrastructure.Managers;
+using Services;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public const string LastLevelKey = "LastLevel";
-
-    // --- NUEVO: Soporte para múltiples slots de guardado ---
-    private const string SaveSlotKeyPrefix = "SaveSlot_";
     public int CurrentSlot { get; private set; } = -1;
+    private ProgressService progressService;
 
     private void Awake()
     {
@@ -19,28 +17,34 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        progressService = new ProgressService(new UserDataService());
     }
 
     public void SaveLevelProgressToSlot(int slot, int buildIndex)
     {
-        Debug.Log($"[GameManager] Guardando progreso: slot={slot}, nivel={buildIndex}");
-        PlayerPrefs.SetInt(SaveSlotKeyPrefix + slot, buildIndex);
-        PlayerPrefs.Save();
-        CurrentSlot = slot;
+        string user = SessionManager.CurrentUser;
+        if (!string.IsNullOrEmpty(user))
+        {
+            progressService.SetProgress(user, slot, buildIndex);
+            CurrentSlot = slot;
+        }
     }
 
     public int GetSavedLevelFromSlot(int slot)
     {
-        int value = PlayerPrefs.GetInt(SaveSlotKeyPrefix + slot, 1);
-        Debug.Log($"[GameManager] Leyendo progreso: slot={slot}, nivel={value}");
-        return value;
+        string user = SessionManager.CurrentUser;
+        if (!string.IsNullOrEmpty(user))
+            return progressService.GetProgress(user, slot);
+        return 1;
     }
 
     public bool HasSavedProgressInSlot(int slot)
     {
-        bool exists = PlayerPrefs.HasKey(SaveSlotKeyPrefix + slot);
-        Debug.Log($"[GameManager] ¿Existe progreso en slot {slot}? {exists}");
-        return exists;
+        string user = SessionManager.CurrentUser;
+        if (!string.IsNullOrEmpty(user))
+            return progressService.GetProgress(user, slot) > 0;
+        return false;
     }
 
     public void SetCurrentSlot(int slot)
@@ -53,40 +57,24 @@ public class GameManager : MonoBehaviour
         return CurrentSlot;
     }
 
-    // Métodos antiguos para compatibilidad (usarán el slot actual si está definido)
+    // Métodos antiguos de compatibilidad
     public void SaveLevelProgress(int buildIndex)
     {
-        // Parche: Si CurrentSlot no está seteado, intentar leer el último slot usado de PlayerPrefs
-        if (CurrentSlot < 0)
-        {
-            // Buscar el último slot con progreso guardado
-            for (int i = 0; i < 3; i++)
-            {
-                if (HasSavedProgressInSlot(i))
-                {
-                    SetCurrentSlot(i);
-                    break;
-                }
-            }
-        }
         if (CurrentSlot >= 0)
             SaveLevelProgressToSlot(CurrentSlot, buildIndex);
-        else
-            PlayerPrefs.SetInt(LastLevelKey, buildIndex);
-        PlayerPrefs.Save();
     }
 
     public int GetSavedLevel()
     {
         if (CurrentSlot >= 0)
             return GetSavedLevelFromSlot(CurrentSlot);
-        return PlayerPrefs.GetInt(LastLevelKey, 1);
+        return 1;
     }
 
     public bool HasSavedProgress()
     {
         if (CurrentSlot >= 0)
             return HasSavedProgressInSlot(CurrentSlot);
-        return PlayerPrefs.HasKey(LastLevelKey);
+        return false;
     }
 }

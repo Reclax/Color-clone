@@ -3,7 +3,6 @@ using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
 
-
 namespace Services
 {
     public class UserDataService
@@ -17,6 +16,7 @@ namespace Services
             Load();
         }
 
+        // Cargar usuarios desde disco
         private void Load()
         {
             if (File.Exists(filePath))
@@ -25,13 +25,19 @@ namespace Services
                 users = new List<User>();
         }
 
+        // Guardar usuarios a disco
         private void Save()
         {
             File.WriteAllText(filePath, JsonConvert.SerializeObject(users, Formatting.Indented));
         }
 
+        // Obtener usuario completo por username
         public User GetUser(string username) => users.Find(u => u.username == username);
 
+        // Obtener todos los usuarios
+        public List<User> GetAllUsers() => users;
+
+        // Añadir usuario nuevo
         public bool AddUser(User user)
         {
             if (users.Exists(u => u.username == user.username)) return false;
@@ -40,6 +46,7 @@ namespace Services
             return true;
         }
 
+        // Cambiar contraseña (y registrar la anterior)
         public bool ChangePassword(string username, string newPassword)
         {
             var user = GetUser(username);
@@ -51,14 +58,14 @@ namespace Services
             return true;
         }
 
+        // Validar password
         public bool ValidatePassword(string username, string password)
         {
             var user = GetUser(username);
             return user != null && user.password == password;
         }
 
-        public List<User> GetAllUsers() => users;
-
+        // Actualizar todos los datos del usuario y guardar
         public bool UpdateUser(User user)
         {
             var idx = users.FindIndex(u => u.username == user.username);
@@ -66,6 +73,33 @@ namespace Services
             users[idx] = user;
             Save();
             return true;
+        }
+
+        // Actualizar progreso de un slot
+        public bool UpdateProgress(string username, int slot, int nivel)
+        {
+            var user = GetUser(username);
+            if (user == null || user.progress == null || slot < 0 || slot >= user.progress.Count) return false;
+            user.progress[slot] = nivel;
+            Save();
+            return true;
+        }
+
+        // Recargar los datos desde disco por si han cambiado externamente
+        public void Reload()
+        {
+            Load();
+        }
+
+        // Método estático para un acceso rápido desde SessionManager (opcional)
+        public static User LoadUserFromDisk(string username)
+        {
+            if (File.Exists(filePath))
+            {
+                var users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(filePath));
+                return users.Find(u => u.username == username);
+            }
+            return null;
         }
     }
 }
