@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Assets.Scripts.Infrastructure.Managers;
+using Services;
 
 namespace ColorClone.Infrastructure.Managers
 {
@@ -37,14 +39,9 @@ namespace ColorClone.Infrastructure.Managers
             int nextIndex = currentIndex + 1;
 
             if (nextIndex < SceneManager.sceneCountInBuildSettings)
-            {
                 StartCoroutine(LoadSceneAsync(nextIndex));
-            }
             else
-            {
-                // Si no hay más escenas, reinicia desde la primera
                 StartCoroutine(LoadSceneAsync(0));
-            }
         }
 
         public void RestartCurrentScene()

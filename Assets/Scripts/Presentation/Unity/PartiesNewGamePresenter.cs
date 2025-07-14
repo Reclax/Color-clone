@@ -80,6 +80,7 @@ namespace ColorClone.Presentation.Unity
 
         private void SlotButtonClicked(int slot)
         {
+            SessionManager.CurrentSlot = slot; // Actualiza el slot actual en SessionManager
             _selectedSlot = slot;
             bool hasProgress = SlotHasProgress(slot);
             if (hasProgress && overwriteDialog != null)
@@ -155,7 +156,7 @@ namespace ColorClone.Presentation.Unity
         {
             if (overwriteDialog != null) overwriteDialog.SetActive(false);
         }
-
+        
         // Métodos públicos para Inspector (si los usas)
         public void OnSlot0ButtonClick() => SlotButtonClicked(0);
         public void OnSlot1ButtonClick() => SlotButtonClicked(1);

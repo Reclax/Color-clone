@@ -73,6 +73,7 @@ namespace ColorClone.Presentation.Unity
 
         private void SlotButtonClicked(int slot)
         {
+            SessionManager.CurrentSlot = slot; // Actualiza el slot actual en SessionManager
             bool hasProgress = SlotHasProgress(slot);
             if (hasProgress)
             {

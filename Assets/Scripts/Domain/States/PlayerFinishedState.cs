@@ -1,6 +1,7 @@
-using UnityEngine;
-using ColorClone.Application.UseCases;
+using Assets.Scripts.Infrastructure.Managers;
 using ColorClone.Domain.Interfaces;
+using Services;
+using UnityEngine;
 
 namespace ColorClone.Domain.States
 {
@@ -9,33 +10,36 @@ namespace ColorClone.Domain.States
         public void Enter(IPlayerContext player)
         {
             player.Finish();
-            // Guardar progreso solo si NO es la EndScreen
+
             var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-            int nextSceneIndex = currentScene.buildIndex + 1;
-            string nextSceneName = (nextSceneIndex < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
-                ? System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(nextSceneIndex))
-                : string.Empty;
-            Debug.Log($"Intentando guardar progreso. Escena actual: {currentScene.name}, siguiente: {nextSceneName}");
-            if (GameManager.Instance != null && nextSceneName != "EndScreen")
+            int currentSceneIndex = currentScene.buildIndex;
+
+            // Guarda el progreso del slot actual en el usuario actual
+            if (SessionManager.currentUser != null)
             {
-                GameManager.Instance.SaveLevelProgress(nextSceneIndex);
-                Debug.Log($"Progreso guardado para el nivel: {nextSceneIndex}");
+                int slot = SessionManager.CurrentSlot;
+
+                // Asegúrate que la lista de progreso tenga suficientes slots
+                if (slot >= 0 && slot < SessionManager.currentUser.progress.Count)
+                {
+                    SessionManager.currentUser.progress[slot] = currentSceneIndex;
+                    new UserDataService().UpdateUser(SessionManager.currentUser);
+
+                    Debug.Log($"Progreso guardado correctamente: Usuario '{SessionManager.CurrentUser}', Slot {slot}, Nivel {currentSceneIndex}");
+                }
+                else
+                {
+                    Debug.LogWarning($"Slot inválido para guardar progreso: {slot}");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("No hay usuario logueado para guardar progreso.");
             }
         }
 
-        public void Exit(IPlayerContext player)
-        {
-            // LÃ³gica al salir del estado finalizado
-        }
-
-        public void Jump(IPlayerContext player)
-        {
-            // No puede saltar estando finalizado
-        }
-
-        public void HandleTrigger(IPlayerContext player, Collider2D other)
-        {
-            // No procesa triggers estando finalizado
-        }
+        public void Exit(IPlayerContext player) { }
+        public void Jump(IPlayerContext player) { }
+        public void HandleTrigger(IPlayerContext player, Collider2D other) { }
     }
 }

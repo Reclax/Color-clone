@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using ColorClone.Domain.Interfaces;
 using Zenject;
+using Assets.Scripts.Infrastructure.Managers;
 
 public class PauseMenuController : MonoBehaviour
 {
