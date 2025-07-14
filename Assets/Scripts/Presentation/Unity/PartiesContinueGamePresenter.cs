@@ -3,15 +3,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using ColorClone.Domain.Interfaces;
+using Assets.Scripts.Infrastructure.Managers;
+using Services; // Para UserDataService
+using UnityEngine.SceneManagement;
 
 namespace ColorClone.Presentation.Unity
 {
     /// <summary>
     /// Vista Unity que implementa la selección de slot SOLO para Continuar Juego, con lógica incluida.
+    /// Usa el usuario actual de SessionManager, no requiere parámetros externos.
     /// </summary>
     public class PartiesContinueGamePresenter : MonoBehaviour, IContinueGamePartiesView
     {
-        
         public event Action OnBackRequested;
 
         [Header("Slots UI")]
@@ -24,14 +27,20 @@ namespace ColorClone.Presentation.Unity
 
         [Header("Configuración")]
         public string startScreenName = "StartScreen";
+        public string gameSceneNamePrefix = "Level"; // Ejemplo: "Level" + n para el nombre de la escena
+
+        private UserDataService _userDataService;
+        private User _currentUser;
 
         void Start()
         {
+            _userDataService = new UserDataService();
+            string username = SessionManager.CurrentUser;
+            _currentUser = _userDataService.GetUser(username);
+
             InitializeView();
             SetupEventListeners();
         }
-
-        void OnDestroy() { } // Si necesitas limpiar eventos, hazlo aquí
 
         private void InitializeView()
         {
@@ -50,7 +59,7 @@ namespace ColorClone.Presentation.Unity
             if (buttons == null) return;
             for (int i = 0; i < buttons.Length; i++)
             {
-                int slotIndex = i; // Necesario para el closure!
+                int slotIndex = i;
                 SetupButton(buttons[i], () => onClick?.Invoke(slotIndex));
             }
         }
@@ -64,7 +73,6 @@ namespace ColorClone.Presentation.Unity
 
         private void SlotButtonClicked(int slot)
         {
-            // Aquí va la lógica para continuar partida.
             bool hasProgress = SlotHasProgress(slot);
             if (hasProgress)
             {
@@ -72,33 +80,38 @@ namespace ColorClone.Presentation.Unity
             }
             else
             {
-                // Puedes mostrar un mensaje de error o ignorar el click
                 Debug.LogWarning($"No hay partida guardada en el slot {slot}.");
             }
         }
 
+        // Verifica si el slot del usuario actual tiene progreso (nivel > 0)
         private bool SlotHasProgress(int slot)
         {
-            // Aquí deberías consultar tu repositorio/servicio real
-            // Ejemplo: return saveGameRepository.HasSavedProgress(slot);
-            return false; // Cambia esto por tu lógica real
+            if (_currentUser == null || _currentUser.progress == null) return false;
+            if (slot < 0 || slot >= _currentUser.progress.Count) return false;
+            return _currentUser.progress[slot] > 0;
         }
 
+        // Carga la partida del slot seleccionado y cambia a la escena correspondiente
         private void ContinueGame(int slot)
         {
-            // Aquí tu lógica para cargar el progreso y cambiar de escena
-            Debug.Log($"Continuando partida en slot {slot}");
-            // Ejemplo: int savedLevel = saveGameRepository.GetSavedLevel(slot);
-            // Ejemplo: SceneManager.LoadScene(savedLevel);
+            if (_currentUser == null) return;
+
+            int savedLevel = _currentUser.progress[slot];
+
+            Debug.Log($"Continuando partida en slot {slot}, nivel {savedLevel}");
+
+            // Cargar la escena del nivel guardado
+            string sceneName = gameSceneNamePrefix + savedLevel.ToString();
+            SceneManager.LoadScene(sceneName);
         }
 
         private void UpdateSlotsDisplay()
         {
             for (int i = 0; i < slotButtons.Length; i++)
             {
-                // Muestra info de slots según tu lógica
                 bool hasProgress = SlotHasProgress(i);
-                string slotText = hasProgress ? "Ocupado" : "Vacío";
+                string slotText = hasProgress ? $"Ocupado (Nivel {_currentUser.progress[i]})" : "Vacío";
                 DisplaySlotInfo(i, slotText, hasProgress);
             }
         }
