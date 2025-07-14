@@ -12,11 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScene.unity
     guid: 4ad0ec033ffe3dc418cfc30eec4b4400
   - enabled: 1
-    path: Assets/Scenes/StartScreen.unity
-    guid: 72f83b69748bf4644b847512b2349245
-  - enabled: 1
-    path: Assets/Scenes/Parties.unity
-    guid: edd7d429565de8148ad1b15da87b6fd1
+    path: Assets/Scenes/RegisterScene.unity
+    guid: c455d39d720326a4695644f47f08e341
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 65800bb5f3d633e4a9109182c4717392
@@ -35,6 +32,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 835a7c0ea4db8bc428c47aa383e71b1a
+  - enabled: 1
+    path: Assets/Scenes/SelectContinueSlots.unity
+    guid: 83ecc150b953ad449a7f26e1fe6c69c1
+  - enabled: 1
+    path: Assets/Scenes/SelectNewGameSlots.unity
+    guid: edd7d429565de8148ad1b15da87b6fd1
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 72f83b69748bf4644b847512b2349245
+  - enabled: 1
+    path: Assets/Scenes/ChangePasswordScene.unity
+    guid: f885f7ea915f2944cae3c8feecc702a2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

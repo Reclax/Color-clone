@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 1
+  m_FillCenter: 0
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
@@ -417,8 +417,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133845529}
-        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesPresenter,
+      - m_Target: {fileID: 1133845528}
+        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesNewGamePresenter,
           Assembly-CSharp
         m_MethodName: OnSlot1ButtonClick
         m_Mode: 1
@@ -867,8 +867,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133845529}
-        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesPresenter,
+      - m_Target: {fileID: 1133845528}
+        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesNewGamePresenter,
           Assembly-CSharp
         m_MethodName: OnBackButtonClick
         m_Mode: 1
@@ -1447,8 +1447,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133845529}
-        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesPresenter,
+      - m_Target: {fileID: 1133845528}
+        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesNewGamePresenter,
           Assembly-CSharp
         m_MethodName: OnSlot0ButtonClick
         m_Mode: 1
@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133845529}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesPresenter,
           Assembly-CSharp
         m_MethodName: OnCancelOverwriteClick
@@ -1721,7 +1721,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1133845527}
   - component: {fileID: 1133845528}
-  - component: {fileID: 1133845529}
   m_Layer: 5
   m_Name: PartiesPresenter
   m_TagString: Untagged
@@ -1757,21 +1756,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133845526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d77eae82fa7580a4890334c973e3828a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startScreenScene: StartScreen
-  partiesScene: Parties
---- !u!114 &1133845529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133845526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d38380608aa71a34bbca28e4fb32d1e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1234c62549bd53a4fb28aa93102a9043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotButtons: []
@@ -1781,9 +1766,9 @@ MonoBehaviour:
   confirmOverwriteButton: {fileID: 1618559210}
   cancelOverwriteButton: {fileID: 1115107995}
   titleText: {fileID: 0}
-  backButton: {fileID: 616699560}
-  firstLevelBuildIndex: 2
-  startScreenName: StartScreen
+  backButton: {fileID: 0}
+  firstLevelBuildIndex: 1
+  gameSceneName: Level1
 --- !u!1 &1140570002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2218,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133845529}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesPresenter,
           Assembly-CSharp
         m_MethodName: OnConfirmOverwriteClick
@@ -2671,8 +2656,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133845529}
-        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesPresenter,
+      - m_Target: {fileID: 1133845528}
+        m_TargetAssemblyTypeName: ColorClone.Presentation.Unity.PartiesNewGamePresenter,
           Assembly-CSharp
         m_MethodName: OnSlot2ButtonClick
         m_Mode: 1
