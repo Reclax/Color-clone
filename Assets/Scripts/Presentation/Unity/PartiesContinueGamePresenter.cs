@@ -23,6 +23,7 @@ namespace ColorClone.Presentation.Unity
 
         [Header("UI Elements")]
         public Text titleText;
+        public Text message;
         public Button backButton;
 
         [Header("Configuración")]
@@ -81,7 +82,7 @@ namespace ColorClone.Presentation.Unity
             }
             else
             {
-                Debug.LogWarning($"No hay partida guardada en el slot {slot}.");
+                message.text=($"No hay partida guardada en el slot {slot+1}.");
             }
         }
 
@@ -100,7 +101,7 @@ namespace ColorClone.Presentation.Unity
 
             int savedLevel = _currentUser.progress[slot];
 
-            Debug.Log($"Continuando partida en slot {slot}, nivel {savedLevel}");
+            message.text = ($"Continuando partida en slot {slot+1}, nivel {savedLevel}");
 
             // Cargar la escena del nivel guardado
             string sceneName = gameSceneNamePrefix + savedLevel.ToString();
