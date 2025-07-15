@@ -21,14 +21,16 @@
   },
   {
     "username": "2",
-    "password": "3",
+    "password": "q",
     "oldPasswords": [
-      "2"
+      "2",
+      "3",
+      "qw"
     ],
     "progress": [
-      1,
+      0,
       5,
-      5
+      4
     ]
   },
   {
