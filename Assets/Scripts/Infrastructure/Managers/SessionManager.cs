@@ -23,5 +23,9 @@ namespace Assets.Scripts.Infrastructure.Managers
             CurrentUser = null;
             currentUser = null;
         }
+        public static void setNameUser(string name)
+        {
+            CurrentUser = name;
+        }
     }
 }

@@ -34,15 +34,38 @@
     ]
   },
   {
-    "username": "3",
-    "password": "1",
+    "username": "qwe",
+    "password": "q",
     "oldPasswords": [
-      "3"
+      "3",
+      "1",
+      "4q",
+      "qwe"
     ],
     "progress": [
       1,
       2,
       1
+    ]
+  },
+  {
+    "username": "juan123",
+    "password": "123",
+    "oldPasswords": [],
+    "progress": [
+      1,
+      2,
+      0
+    ]
+  },
+  {
+    "username": "3",
+    "password": "3",
+    "oldPasswords": [],
+    "progress": [
+      0,
+      0,
+      0
     ]
   }
 ]

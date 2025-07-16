@@ -57,7 +57,20 @@ namespace Services
             Save();
             return true;
         }
-
+        public bool ChangeUsername(string oldUsername, string newUsername)
+        {
+            // 1. Validar que el nuevo nombre no exista ya
+            if (users.Exists(u => u.username == newUsername))
+                return false;
+            // 2. Buscar el usuario con el nombre viejo
+            var user = users.Find(u => u.username == oldUsername);
+            if (user == null)
+                return false;
+            // 3. Actualizar solo el campo username
+            user.username = newUsername;
+            Save();
+            return true;
+        }
         // Validar password
         public bool ValidatePassword(string username, string password)
         {

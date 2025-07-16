@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 834901149}
   - component: {fileID: 834901151}
   m_Layer: 5
-  m_Name: Usuario
+  m_Name: NameUser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 1105905774}
   - component: {fileID: 1105905776}
   m_Layer: 5
-  m_Name: "Contrase\xF1a"
+  m_Name: Password
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 1376769361}
   - component: {fileID: 1376769363}
   m_Layer: 5
-  m_Name: Registrarse
+  m_Name: Register
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 1582790472}
   - component: {fileID: 1582790474}
   m_Layer: 5
-  m_Name: IniciarSesion
+  m_Name: GoToLogin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
