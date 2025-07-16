@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 265757601}
   - component: {fileID: 265757600}
   m_Layer: 5
-  m_Name: Slot1
+  m_Name: BtnSlot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1377,7 +1377,7 @@ GameObject:
   - component: {fileID: 991427491}
   - component: {fileID: 991427490}
   m_Layer: 5
-  m_Name: Slot0
+  m_Name: BtnSlot0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 1115107996}
   - component: {fileID: 1115107995}
   m_Layer: 5
-  m_Name: CancelButton
+  m_Name: BtnCancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2110,7 +2110,7 @@ GameObject:
   - component: {fileID: 1618559208}
   - component: {fileID: 1618559210}
   m_Layer: 5
-  m_Name: ConfirmButton
+  m_Name: BtnConfirm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2586,7 +2586,7 @@ GameObject:
   - component: {fileID: 1880489556}
   - component: {fileID: 1880489555}
   m_Layer: 5
-  m_Name: Slot2
+  m_Name: BtnSlot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

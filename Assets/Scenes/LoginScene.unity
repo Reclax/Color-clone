@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 1376769361}
   - component: {fileID: 1376769363}
   m_Layer: 5
-  m_Name: Register
+  m_Name: BtnRegister
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 1582790472}
   - component: {fileID: 1582790474}
   m_Layer: 5
-  m_Name: StartSesion
+  m_Name: BtnStartSesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

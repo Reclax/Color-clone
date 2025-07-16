@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 42498022}
   - component: {fileID: 42498021}
   m_Layer: 5
-  m_Name: CloseSesion
+  m_Name: BtnCloseSesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 518646692}
   - component: {fileID: 518646691}
   m_Layer: 5
-  m_Name: ChangePassword
+  m_Name: BtnChangePassword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -37,7 +37,7 @@ namespace Services
         // Obtener todos los usuarios
         public List<User> GetAllUsers() => users;
 
-        // Añadir usuario nuevo
+        // Aï¿½adir usuario nuevo
         public bool AddUser(User user)
         {
             if (users.Exists(u => u.username == user.username)) return false;
@@ -46,7 +46,7 @@ namespace Services
             return true;
         }
 
-        // Cambiar contraseña (y registrar la anterior)
+        // Cambiar contraseÃ±a (y registrar la anterior)
         public bool ChangePassword(string username, string newPassword)
         {
             var user = GetUser(username);
@@ -57,7 +57,7 @@ namespace Services
             Save();
             return true;
         }
-        public bool ChangeUsername(string oldUsername, string newUsername)
+        public bool ChangeUserName(string oldUsername, string newUsername)
         {
             // 1. Validar que el nuevo nombre no exista ya
             if (users.Exists(u => u.username == newUsername))
@@ -104,7 +104,7 @@ namespace Services
             Load();
         }
 
-        // Método estático para un acceso rápido desde SessionManager (opcional)
+        // Mï¿½todo estï¿½tico para un acceso rï¿½pido desde SessionManager (opcional)
         public static User LoadUserFromDisk(string username)
         {
             if (File.Exists(filePath))
